@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Hi there</title>
+
+<div id="container" style="height: 300px"></div>
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Hi there</title>
+<body>
+<div id="container" style="height: 300px"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools.js"></script>
+<script src="http://code.highcharts.com/adapters/mootools-adapter.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+<script type="text/javascript">
+	window.addEvent('domready', function() {
+    var options = {
+        chart: {
+            renderTo: 'container',
+            type: 'spline'
+        },
+		series: [{}],
+		title: {
+			text: 'Fermentation Temperatures'
+		},
+		yAxis: {
+			title: {
+				text: 'Temperature [F]'
+			}
+		},
+		xAxis: {
+			type: 'datetime',
+			dateTimeLabelFormats: {
+				second: '%H:%M:%S'
+			}
+		}
+    };
+	$.getJSON('temperatures.json', function(data) {
+		options.series[0].data = data;
+		var chart = new Highcharts.Chart(options);
+	});
+	});
+function loadData(){
+	document.getElementById("demo").innerHTML = "tested";	
+};
+
+</script>
+</head>
+	<p id="demo"></p>
+<button type="button" onclick="loadData()">Change Content</button>
+</body>
+</html>
