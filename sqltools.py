@@ -3,15 +3,15 @@ import sqlite3
 def CreateTempTable():
 	conn = sqlite3.connect('temperatures.db')
 	cur = conn.cursor()
-	cur.execute("CREATE TABLE temps (timestamp DATETIME, chamberTemp NUMERIC, wortTemp NUMERIC)")
+	cur.execute("CREATE TABLE temps (timestamp DATETIME, chamberTemp NUMERIC, wortTemp NUMERIC, motorpv NUMERIC)")
 	conn.commit();
 	conn.close();
 	
-def log_temperature(chamberTemp, wortTemp):
+def LogData(chamberTemp, wortTemp, motorpv):
 	conn = sqlite3.connect('temperatures.db')
 	curs = conn.cursor()
 
-	curs.execute("INSERT INTO temps values(datetime('now'), ?, ?)", (chamberTemp, wortTemp,))
+	curs.execute("INSERT INTO temps values(datetime('now'), ?, ?, ?)", (chamberTemp, wortTemp, motorpv))
 	
 	conn.commit()
 	conn.close()
