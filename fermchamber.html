@@ -26,7 +26,16 @@
             renderTo: 'container',
             type: 'spline'
         },
-		series: [{}],
+		series: [{
+			name: 'val1',
+			data: []
+		}, {
+			name: 'val2',
+			data: []
+		}, {
+			name: 'val3',
+			data: []
+		}],
 		title: {
 			text: 'Fermentation Temperatures'
 		},
@@ -43,7 +52,17 @@
 		}
     };
 	$.getJSON('temperatures.json', function(data) {
-		options.series[0].data = data;
+		val1 = [];
+		val2 = [];
+		val3 = [];
+		$.each(data, function(key,value){
+			val1.push([value[0], value[1]]);
+			val2.push([value[0], value[2]]);
+			val3.push([value[0], value[3]]);
+		});
+		options.series[0].data = val1;
+		options.series[1].data = val2;
+		options.series[2].data = val3;
 		var chart = new Highcharts.Chart(options);
 	});
 	});
