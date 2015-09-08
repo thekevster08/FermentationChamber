@@ -1,118 +1,116 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Fermentation Chamber</title>
-        
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools.js"></script>
-   <script src="//code.highcharts.com/adapters/mootools-adapter.js"></script>
-<!-- <script src="//code.highcharts.com/highcharts.js"></script> -->
-    <script src="//code.highcharts.com/stock/highstock.js"></script>
-<script src="//code.highcharts.com/stock/modules/exporting.js"></script>
-    </head>
-    
-    <body>
-        
-        
-        <div id="container" style="height: 300px"></div>
-        
-        <button type="submit" class="btn btn-lg btn-success" value="send" role="button" id="interfaceButton" href="interface" class="btn btn-main">Interface</button>
-        
-        <p class="tagline">From Cloud9 IDE!</p>
-        <form class="form-inline" role="form">
-  
-  <div class="form-group">
-    <label for="setpoint">Setpoint:</label>
-    <input class="form-control" id="setpoint">
-  </div>
+<head>
+  <meta charset="utf-8" />
+  <title>Fermentation Chamber</title>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools.js"></script>
+  <script src="//code.highcharts.com/adapters/mootools-adapter.js"></script>
+  <!-- <script src="//code.highcharts.com/highcharts.js"></script> -->
+  <script src="//code.highcharts.com/stock/highstock.js"></script>
+  <script src="//code.highcharts.com/stock/modules/exporting.js"></script>
+</head>
+
+<body>
+
+
+  <div id="container" style="height: 300px"></div>
+
+  <button type="submit" class="btn btn-lg btn-success" value="send" role="button" id="interfaceButton" href="interface" class="btn btn-main">Interface</button>
+
+  <p class="tagline">From Cloud9 IDE!</p>
+  <form class="form-inline" role="form">
+
+    <div class="form-group">
+      <label for="setpoint">Setpoint:</label>
+      <input class="form-control" id="setpoint">
+    </div>
     <button type="button" id="setSetpointButton" class="btn btn-default">Update!</button>
-</form>
-<p id="">---</p>
-        <p id="author">---</p>
-        <!-- load scripts at the bottom of your page -->
-               <script src="../static/site.js"></script>
-	
-        <script type="text/javascript">
-	
-	
-	
-	
-	window.addEvent('domready', function() {
-    
-    
-    
-    
-    var options = {
-        chart: {
-            renderTo: 'container',
+  </form>
+  <p id="">{{setpoint}}</p>
+  <p id="author">---</p>
+  <div id="content">
+                <form method="post" action='/update_setpoint/'>
+                  <label for="setpoint">Change Setpoint:</label>
+                  <input type="text" name="setpoint" /><br />
+                  <input type="submit" />
+                </form>
+    </div>
+  <!-- load scripts at the bottom of your page -->
+  <script src="../static/site.js"></script>
 
-        },
-        
-        rangeSelector: {
-          enabled: true,
-          selected: 2
-        
-        },
-        
-		series: [{
-			name: 'val1',
-			type: 'spline',
-			data: [],
-			tooltip: {
-			  valueDecimals: 2
-			}
-		}, {
-			name: 'val2',
-			type: 'spline',
-			data: [],
-			tooltip: {
-			  valueDecimals: 2
-			}
-		}, {
-			name: 'val3',
-			type: 'spline',
-			data: [],
-			tooltip: {
-			  valueDecimals: 2
-			}
-		}],
-		title: {
-			text: 'Fermentation Temperatures'
-		},
-				xAxis: {
-			type: 'datetime',
-			dateTimeLabelFormats: {
-				second: '%Y-%m-%d'
-			}
-		}
-		
+  <script type="text/javascript">
+    window.addEvent('domready', function() {
+        var options = {
+            chart: {
+                renderTo: 'container',
+            },
+            
+            rangeSelector: {
+              enabled: true,
+              selected: 2
+            
+            },
+            
+    		series: [{
+    			name: 'val1',
+    			type: 'spline',
+    			data: [],
+    			tooltip: {
+    			  valueDecimals: 2
+    			}
+    		}, {
+    			name: 'val2',
+    			type: 'spline',
+    			data: [],
+    			tooltip: {
+    			  valueDecimals: 2
+    			}
+    		}, {
+    			name: 'val3',
+    			type: 'spline',
+    			data: [],
+    			tooltip: {
+    			  valueDecimals: 2
+    			}
+    		}],
+    		title: {
+    			text: 'Fermentation Temperatures'
+    		},
+    				xAxis: {
+    			type: 'datetime',
+    			dateTimeLabelFormats: {
+    				second: '%Y-%m-%d'
+    			}
+    		}
+    		
+    		
+        };
+    	$.getJSON('../Databases/temperatures.json', function(data) {
+    		val1 = [];
+    		val2 = [];
+    		val3 = [];
+    		$.each(data, function(key,value){
+    			val1.push([value[0], value[1]]);
+    			val2.push([value[0], value[2]]);
+    			val3.push([value[0], value[3]]);
+    		});
+    		options.series[0].data = val1;
+    		options.series[1].data = val2;
+    		options.series[2].data = val3;
+    		var chart = new Highcharts.StockChart(options);
+    	});
+    	});
+  </script>
 
-		
-    };
-	$.getJSON('../Databases/temperatures.json', function(data) {
-		val1 = [];
-		val2 = [];
-		val3 = [];
-		$.each(data, function(key,value){
-			val1.push([value[0], value[1]]);
-			val2.push([value[0], value[2]]);
-			val3.push([value[0], value[3]]);
-		});
-		options.series[0].data = val1;
-		options.series[1].data = val2;
-		options.series[2].data = val3;
-		var chart = new Highcharts.StockChart(options);
-	});
-	});
 
-</script>
-        
+</body>
 
-    </body>
 </html>

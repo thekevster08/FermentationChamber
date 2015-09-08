@@ -1,13 +1,13 @@
 import sqlite3
 
-def CreateTempTable():
+def create_temperature_table():
 	conn = sqlite3.connect('temperatures.db')
 	cur = conn.cursor()
 	cur.execute("CREATE TABLE temps (timestamp DATETIME, chamberTemp NUMERIC, wortTemp NUMERIC, motorpv NUMERIC)")
 	conn.commit();
 	conn.close();
 	
-def LogData(chamberTemp, wortTemp, motorpv):
+def log_data(chamberTemp, wortTemp, motorpv):
 	conn = sqlite3.connect('temperatures.db')
 	curs = conn.cursor()
 
@@ -16,9 +16,9 @@ def LogData(chamberTemp, wortTemp, motorpv):
 	conn.commit()
 	conn.close()
 	
-def DropTempTable():
+def drop_temperature_table():
 	conn = sqlite3.connect('temperatures.db')
 	curs = conn.cursor()
 						   
 	curs.execute('drop table if exists temps')
-	CreateTempTable()
+	create_temperatTable()

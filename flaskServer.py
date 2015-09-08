@@ -1,5 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request 
+
 import os
+import collectDataSim
+import recordJSON
 
 app = Flask(__name__)
 app.debug = True
@@ -17,11 +20,21 @@ def interface():
 
 @app.route('/setSetpoint', methods=['POST'])
 def setSetpoint():
-   #return "button hit"
-    _setpoint = request.form['setpoint']
     
+    #_setpoint = request.form['setpoint']
+    return "button hit"
     # setpoint = _setpoint
     # return setpoint
+
+@app.route('/update_setpoint/', methods=['POST'])
+def hello():
+    setpoint=request.form['setpoint']
+    return render_template('index.html', setpoint=setpoint)
+
+
+def collect_data():
+    collectDataSim.collect_data()
+    recordJSON.record_JSON
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 8080))

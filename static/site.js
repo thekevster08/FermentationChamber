@@ -20,6 +20,10 @@ $('#interfaceButton').on("click", function() {
                console.log(error);
            }
        });
+       
+       $.getJSON('../Databases/temperatures.json', function(data) {
+    	alert("jQuery works!")
+        });
 });
 
 $('#setSetpointButton').on("click", function() {
@@ -35,3 +39,4 @@ $('#setSetpointButton').on("click", function() {
            }
        });
 });
+
