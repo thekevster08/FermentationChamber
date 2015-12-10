@@ -22,3 +22,6 @@ Milestones
 
 fill in text box, click button, server reads it and sends back message. 
 text gets updated with the response
+
+
+Instructions for use:
