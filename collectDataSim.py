@@ -3,11 +3,15 @@ import SQLTools
 import time
 import os
 from random import randint
+
+import contextlib
+import sqlite3
+import json
+import sys
 #import RPi.GPIO as GPIO
 
 
-def collect_data():
-	SETPOINT = 68
+
 	
 	#GPIO.setmode(GPIO.BOARD)
 	
@@ -26,18 +30,22 @@ def collect_data():
 #	wortProbeFile = base_dir + '28-00000626d82b/w1_slave'
 #	chamberProbeFile = base_dir + '28-00000626f736/w1_slave'
 	
-	SQLTools.drop_temperature_table()
+SQLTools.drop_temperature_table()
+
+while True:
+	wortTemperature = randint(65,70)
+	chamberTemperature = wortTemperature + 5
+	ambientTemperature = wortTemperature + 10
 	
-	while True:
-		wortTemperature = randint(65,70)
-		chamberTemperature = wortTemperature + 5
-		
-		if wortTemperature < SETPOINT:
-			motorpv = 0
-		elif wortTemperature > SETPOINT:
-			motorpv = 100
-			
-	#	p.ChangeDutyCycle(motorpv)
-		
-		SQLTools.log_data(wortTemperature, chamberTemperature, motorpv)
-		time.sleep(5)
+	SQLTools.log_data(wortTemperature, chamberTemperature, ambientTemperature)
+	
+	with contextlib.closing(sqlite3.connect('./Databases/temperatures.db')) as database:
+		with contextlib.closing(database.cursor()) as cursor:
+			cursor.execute('select strftime("%s", timestamp)*1000, chamberTemp, wortTemp, ambientTemp from temps')
+			temperatures = []
+			for timestamp, chamberTemp, wortTemp, motorpv in cursor:
+				temperatures.append([timestamp, chamberTemp, wortTemp, motorpv])
+
+	with open('./Databases/temperatures.json','w') as outfile:
+		json.dump(temperatures, outfile)
+	time.sleep(5)

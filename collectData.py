@@ -36,12 +36,7 @@ def collect_data():
 		wortTemperature = TemperatureTools.read_temp(wortProbeFile)
 		chamberTemperature = TemperatureTools.read_temp(chamberProbeFile)
 		
-		if wortTemperature < SETPOINT:
-			motorpv = 0
-		elif wortTemperature > SETPOINT:
-			motorpv = 100
-			
-		p.ChangeDutyCycle(motorpv)
+	
 		
 		SQLTools.LogData(wortTemperature, chamberTemperature, motorpv)
 		
