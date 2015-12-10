@@ -4,6 +4,11 @@ import time
 import os
 import RPi.GPIO as GPIO
 
+import contextlib
+import sqlite3
+import json
+import sys
+import time
 
 def collect_data():
 	SETPOINT = 68
@@ -25,11 +30,11 @@ def collect_data():
 	wortProbeFile = base_dir + '28-00000626d82b/w1_slave'
 	chamberProbeFile = base_dir + '28-00000626f736/w1_slave'
 	
-	sqltools.DropTempTable()
+	SQLTools.DropTempTable()
 	
 	while True:
-		wortTemperature = temperatureTools.read_temp(wortProbeFile)
-		chamberTemperature = temperatureTools.read_temp(chamberProbeFile)
+		wortTemperature = TemperatureTools.read_temp(wortProbeFile)
+		chamberTemperature = TemperatureTools.read_temp(chamberProbeFile)
 		
 		if wortTemperature < SETPOINT:
 			motorpv = 0
@@ -38,5 +43,15 @@ def collect_data():
 			
 		p.ChangeDutyCycle(motorpv)
 		
-		sqltools.LogData(wortTemperature, chamberTemperature, motorpv)
+		SQLTools.LogData(wortTemperature, chamberTemperature, motorpv)
+		
+		with contextlib.closing(sqlite3.connect('temperatures.db')) as database:
+			with contextlib.closing(database.cursor()) as cursor:
+				cursor.execute('select strftime("%s", timestamp)*1000, chamberTemp, wortTemp, motorpv from temps')
+				temperatures = []
+				for timestamp, chamberTemp, wortTemp, motorpv in cursor:
+					temperatures.append([timestamp, chamberTemp, wortTemp, motorpv])
+	
+		with open('temperatures.json','w') as outfile:
+			json.dump(temperatures, outfile)
 		time.sleep(5)

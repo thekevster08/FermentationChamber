@@ -26,6 +26,10 @@ def setSetpoint():
     # setpoint = _setpoint
     # return setpoint
 
+@app.route('/getData',methods=['GET'])
+def getData():
+    return "this is the return message"
+
 @app.route('/update_setpoint/', methods=['POST'])
 def hello():
     setpoint=request.form['setpoint']
