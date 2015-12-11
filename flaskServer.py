@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request 
 
 import os
-import collectDataSim
-import recordJSON
+# import collectDataSim
+# import recordJSON
 
 app = Flask(__name__)
 app.debug = True
@@ -36,9 +36,9 @@ def hello():
     return render_template('index.html', setpoint=setpoint)
 
 
-def collect_data():
-    collectDataSim.collect_data()
-    recordJSON.record_JSON
+# def collect_data():
+#     collectDataSim.collect_data()
+#     recordJSON.record_JSON
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 8080))

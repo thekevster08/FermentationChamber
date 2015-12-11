@@ -40,5 +40,5 @@ Feature Request
 -want to be able to save a current database
 
 Version Updates
--updated motorpv to ambient temp
--moved tools to main directory. cant import outside directory in python
+-server working
+-make sure that any files you need to access are in static (dumb)
