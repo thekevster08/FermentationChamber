@@ -2,18 +2,36 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Highcharts Example</title>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>  
 
 </head>
 
 <body>
     
 <h1>Highcharts example</h1>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     
-    <script src="https://code.highcharts.com/stock/highstock.js"></script>
-    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>  
 
 <div id="container" style="height: 400px; min-width: 310px"></div>
+<Button id="startButton">Start</Button>
+<Button id="stopButton">Stop</Button>
+<button id="newButton">New</button>
+
+ {% if setpoint%}
+  <p id="setpoint">Setpoint:{{setpoint}}</p>
+  {% endif %}
+  <div id="content">
+    <form method="post" action='/update_setpoint/'>
+      <label for="setpoint">Change Setpoint:</label>
+      <input type="text" name="setpoint" /><br />
+      <input type="submit" />
+    </form>
+  </div>
+  <!-- load scripts at the bottom of your page -->
+  <script src="../static/site.js"></script>
 
 <script>
 $(document).ready(function(){
@@ -97,10 +115,6 @@ $(document).ready(function(){
         });
     });
 });
-
-    
-
-
 </script>
-
-</body></html>
+</body>
+</html>

@@ -35,6 +35,9 @@ Feature Request
 -add "start collection" button
 -add "clearn db" button
 -have start stop pause collection. have a green light indicating collection
+-update constantly
+    -its really not feasable to have it updating constantly, so lets not worry about that
+-want to be able to save a current database
 
 Version Updates
 -updated motorpv to ambient temp
