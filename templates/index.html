@@ -27,13 +27,17 @@
   {% endif %}
   <div id="content">
     
-    
+
+    <p> </p>
     <form method="post" action='/update_setpoint/'>
       <label for="setpoint">Change Setpoint:</label>
       <input type="text" name="setpoint" /><br />
       <input type="submit" />
     </form>
-  
+    
+    <form method="post" action='/start'>
+      <button name = 'startButton' value = 'OtherNew'/>
+    </form>
   
   
   </div>

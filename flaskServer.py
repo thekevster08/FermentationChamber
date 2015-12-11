@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request 
 
 import os
+import SQLTools
+#import collectDataSim
 # import collectDataSim
 # import recordJSON
 
@@ -17,7 +19,12 @@ def main():
 def interface():
     return "this is the return message"
     
-
+@app.route('/start', methods=['POST'])
+def start():
+    SQLTools.drop_temperature_table()
+    return "asdf"
+    
+    
 @app.route('/setSetpoint', methods=['POST'])
 def setSetpoint():
     
@@ -26,9 +33,9 @@ def setSetpoint():
     # setpoint = _setpoint
     # return setpoint
 
-@app.route('/getData',methods=['GET'])
-def getData():
-    return "this is the return message"
+# @app.route('/getData',methods=['GET'])
+# def getData():
+#     return "this is the return message"
 
 @app.route('/update_setpoint/', methods=['POST'])
 def hello():

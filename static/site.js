@@ -2,6 +2,7 @@
 //[workspace]-c9-[username].c9.io
 
 $(document).ready(function(){
+    console.log("asdaf");
     // $.ajax({
     //     url: 'getData',
     //     type: 'GET',
@@ -14,25 +15,25 @@ $(document).ready(function(){
     // })
 });
 
-// $('#startButton').on("click", function() {
-//       console.log("clicked");
-//     //   $('#quote').text('b');
-//     //   $('#author').text('c');
-//       $.ajax({
-//           url: '/stop',
-//           type: 'POST',
-//           success: function(response){
-//               console.log(response);
-//           },
-//           error: function(error){
-//               console.log(error);
-//           }
-//       });
+$('#startButton').on("click", function() {
+      console.log("clicked");
+    //   $('#quote').text('b');
+    //   $('#author').text('c');
+       $.ajax({
+           url: '/start',
+           type: 'POST',
+           success: function(response){
+               console.log(response);
+           },
+           error: function(error){
+               console.log(error);
+           }
+       });
        
-//       $.getJSON('../Databases/temperatures.json', function(data) {
-//     	alert("jQuery works!")
-//         });
-// });
+    //   $.getJSON('../Databases/temperatures.json', function(data) {
+    // 	alert("jQuery works!")
+    //     });
+});
 
 // $(".tagline").click(function() {
 //     alert("jQuery works!");

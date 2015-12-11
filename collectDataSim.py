@@ -29,7 +29,8 @@ import sys
 #	base_dir = '/sys/bus/w1/devices/'
 #	wortProbeFile = base_dir + '28-00000626d82b/w1_slave'
 #	chamberProbeFile = base_dir + '28-00000626f736/w1_slave'
-	
+
+
 SQLTools.drop_temperature_table()
 
 while True:
