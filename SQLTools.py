@@ -1,4 +1,5 @@
 import sqlite3
+import shutil
 
 def create_temperature_table():
 	conn = sqlite3.connect('./static/temperatures.db')
@@ -22,3 +23,7 @@ def drop_temperature_table():
 						   
 	curs.execute('drop table if exists temps')
 	create_temperature_table()
+	
+def save_temperature_table(filename):
+	shutil.copy2('./static/temperatures.db','./static/' + filename +'.db')
+	

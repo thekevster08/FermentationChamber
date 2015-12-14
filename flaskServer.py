@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request 
+from flask import Flask, render_template, request, jsonify 
 
 import os
 import SQLTools
@@ -19,10 +19,10 @@ def main():
 def interface():
     return "this is the return message"
     
-@app.route('/start', methods=['POST'])
-def start():
-    SQLTools.drop_temperature_table()
-    return "asdf"
+# @app.route('/start', methods=['POST'])
+# def start():
+#     SQLTools.drop_temperature_table()
+#     return "asdf"
     
     
 @app.route('/setSetpoint', methods=['POST'])
@@ -47,6 +47,14 @@ def hello():
 #     collectDataSim.collect_data()
 #     recordJSON.record_JSON
 
+@app.route('/save/', methods=['GET'])
+def echo():
+    filename = request.args.get('saveFilename')
+    SQLTools.save_temperature_table(filename)
+#     return "asdf"
+    ret_data = {"value": request.args.get('saveFilename')}
+    return jsonify(ret_data)
+    
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 8080))
     host = os.getenv('IP', '0.0.0.0')

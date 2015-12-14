@@ -37,8 +37,12 @@ Feature Request
 -have start stop pause collection. have a green light indicating collection
 -update constantly
     -its really not feasable to have it updating constantly, so lets not worry about that
--want to be able to save a current database
+-want to be able to save a current database, then load another one
+-buttons: New, Start, Pause
+-
+
 
 Version Updates
 -server working
 -make sure that any files you need to access are in static (dumb)
+
