@@ -39,8 +39,9 @@ Feature Request
     -its really not feasable to have it updating constantly, so lets not worry about that
 -want to be able to save a current database, then load another one
 -buttons: New, Start, Pause
--
-
+-in plotChart instead of running getJSON, make a call to a function to copy everything from 
+    the db to the json file, then call json
+-have a start collection and stop collection button. only run the collect script of asked
 
 Version Updates
 -server working

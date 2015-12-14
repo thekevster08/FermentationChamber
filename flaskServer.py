@@ -19,10 +19,10 @@ def main():
 def interface():
     return "this is the return message"
     
-# @app.route('/start', methods=['POST'])
-# def start():
-#     SQLTools.drop_temperature_table()
-#     return "asdf"
+@app.route('/start', methods=['POST'])
+def start():
+    SQLTools.drop_temperature_table()
+    return "asdf"
     
     
 @app.route('/setSetpoint', methods=['POST'])
@@ -53,6 +53,14 @@ def echo():
     SQLTools.save_temperature_table(filename)
 #     return "asdf"
     ret_data = {"value": request.args.get('saveFilename')}
+    return jsonify(ret_data)
+    
+@app.route('/load/', methods=['GET'])
+def load():
+    filename = request.args.get('loadFilename')
+    SQLTools.load_temperature_table(filename)
+#     return "asdf"
+    ret_data = {"value": request.args.get('loadFilename')}
     return jsonify(ret_data)
     
 if __name__ == '__main__':
