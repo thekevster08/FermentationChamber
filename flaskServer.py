@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 
 import os
 import SQLTools
-#import collectDataSim
+import collectDataSim
 # import collectDataSim
 # import recordJSON
 
@@ -19,11 +19,21 @@ def main():
 def interface():
     return "this is the return message"
     
-@app.route('/start', methods=['POST'])
+@app.route('/new', methods=['POST'])
 def start():
     SQLTools.drop_temperature_table()
-    return "asdf"
+    return "New Pressed"
     
+@app.route('/startCollection', methods=['POST'])
+def startCollection():
+    # collectDataSim.setCollectData(1)
+    #collectDataSim.collectData()
+    return "starting"
+
+# @app.route('/stopCollection', methods=['POST'])
+# def stopCollection():
+#     collectDataSim.setCollectData(0)
+#     return "stopping"
     
 @app.route('/setSetpoint', methods=['POST'])
 def setSetpoint():

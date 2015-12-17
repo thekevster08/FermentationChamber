@@ -98,12 +98,12 @@ function plotChart(){
 //     // })
 // });
 
-$('#startButton').on("click", function() {
+$('#newButton').on("click", function() {
       console.log("clicked");
     //   $('#quote').text('b');
     //   $('#author').text('c');
       $.ajax({
-          url: '/start',
+          url: '/new',
           type: 'POST',
           success: function(response){
               console.log(response);
@@ -119,7 +119,46 @@ $('#startButton').on("click", function() {
     //     });
 });
 
+// $('#startCollectionButton').on("click", function() {
+//       console.log("clicked");
+//     //   $('#quote').text('b');
+//     //   $('#author').text('c');
+//       $.ajax({
+//           url: '/startCollection',
+//           type: 'POST',
+//           success: function(response){
+//               console.log(response);
+//           },
+//           error: function(error){
+//               console.log(error);
+//           }
+//       });
+       
+//     //   $.getJSON('../Databases/temperatures.json', function(data) {
+//     // 	alert("jQuery works!")
+//     //     });
+// });
 
+// $('#stopCollectionButton').on("click", function() {
+//       console.log("clicked");
+//     //   $('#quote').text('b');
+//     //   $('#author').text('c');
+//       $.ajax({
+//           url: '/stopCollection',
+//           type: 'POST',
+//           success: function(response){
+//               console.log(response);
+//               plotChart();
+//           },
+//           error: function(error){
+//               console.log(error);
+//           }
+//       });
+       
+//     //   $.getJSON('../Databases/temperatures.json', function(data) {
+//     // 	alert("jQuery works!")
+//     //     });
+// });
 
 
 // $('#saveButton').on("click", function() {
