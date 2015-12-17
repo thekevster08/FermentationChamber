@@ -10,7 +10,7 @@ import json
 import sys
 #import RPi.GPIO as GPIO
 
-
+collectDataFlag = 0
 
 	
 	#GPIO.setmode(GPIO.BOARD)
@@ -30,10 +30,13 @@ import sys
 #	wortProbeFile = base_dir + '28-00000626d82b/w1_slave'
 #	chamberProbeFile = base_dir + '28-00000626f736/w1_slave'
 
+# def setCollectData(collectDataFlagValue):
+# 	collectDataFlag = collectDataFlagValue
+	
+#SQLTools.drop_temperature_table()
 
-SQLTools.drop_temperature_table()
-
-while True:
+#def collectData():
+while True:#(collectDataFlag == 1):
 	wortTemperature = randint(65,70)
 	chamberTemperature = wortTemperature + 5
 	ambientTemperature = wortTemperature + 10
@@ -46,7 +49,7 @@ while True:
 			temperatures = []
 			for timestamp, chamberTemp, wortTemp, motorpv in cursor:
 				temperatures.append([timestamp, chamberTemp, wortTemp, motorpv])
-
+	
 	with open('./static/temperatures.json','w') as outfile:
 		json.dump(temperatures, outfile)
 	time.sleep(5)

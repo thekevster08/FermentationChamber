@@ -18,10 +18,11 @@
     
 
 <div id="container" style="height: 600px; min-width: 310px"></div>
-<Button id="startButton">Start</Button>
+<Button id="newButton">New</Button>
 <Button id="stopButton">Stop</Button>
-<button id="newButton">New</button>
-
+<!--<button id="newButton">New</button>-->
+<button id="startCollectionButton">Start Collection</button>
+<button id="stopCollectionButton">Stop Collection</button>
 <p></p>
 
 <strong>Save Filename:</strong>
@@ -36,27 +37,27 @@
     <strong><div id="echoResult"></div></strong>
 <p></p>
 
-<button id="openButton">Open</button>
-<input id="openFileInput" type="file" name="openFileInput" stle="display: none;" />
+<!--<button id="openButton">Open</button>-->
+<!--<input id="openFileInput" type="file" name="openFileInput" stle="display: none;" />-->
 
-<p></p>
+<!--<p></p>-->
 
- {% if setpoint%}
-  <p id="setpoint">Setpoint:{{setpoint}}</p>
-  {% endif %}
-  <div id="content">
+ <!--{% if setpoint%}-->
+ <!-- <p id="setpoint">Setpoint:{{setpoint}}</p>-->
+ <!-- {% endif %}-->
+ <!-- <div id="content">-->
     
 
-    <p> </p>
-    <form method="post" action='/update_setpoint/'>
-      <label for="setpoint">Change Setpoint:</label>
-      <input type="text" name="setpoint" /><br />
-      <input type="submit" />
-    </form>
+ <!--   <p> </p>-->
+ <!--   <form method="post" action='/update_setpoint/'>-->
+ <!--     <label for="setpoint">Change Setpoint:</label>-->
+ <!--     <input type="text" name="setpoint" /><br />-->
+ <!--     <input type="submit" />-->
+ <!--   </form>-->
     
-    <form method="post" action='/start'>
-      <button name = 'startButton' value = 'OtherNew'/>
-    </form>
+ <!--   <form method="post" action='/start'>-->
+ <!--     <button name = 'startButton' value = 'OtherNew'/>-->
+ <!--   </form>-->
   
     
   </div>
