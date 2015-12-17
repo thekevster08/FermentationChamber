@@ -9,60 +9,32 @@
     
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
     <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>  
-
 </head>
 
 <body>
     
-<h1>Fermentation Chamber Control Center</h1>
+    <h1>Fermentation Chamber Control Center</h1>
+        
     
-
-<div id="container" style="height: 600px; min-width: 310px"></div>
-<Button id="newButton">New</Button>
-<Button id="stopButton">Stop</Button>
-<!--<button id="newButton">New</button>-->
-<button id="startCollectionButton">Start Collection</button>
-<button id="stopCollectionButton">Stop Collection</button>
-<p></p>
-
-<strong>Save Filename:</strong>
-    <input type="text" size="10" id="saveFilename" name="saveFilename">
-    <button type="button" id="saveBtn" name="saveBtn">Save</button><br><br>
-    <strong><div id="echoResult"></div></strong>
-<p></p>
-
-<strong>Load Filename:</strong>
-    <input type="text" size="10" id="loadFilename" name="loadFilename">
-    <button type="button" id="loadBtn" name="loadBtn">Load</button><br><br>
-    <strong><div id="echoResult"></div></strong>
-<p></p>
-
-<!--<button id="openButton">Open</button>-->
-<!--<input id="openFileInput" type="file" name="openFileInput" stle="display: none;" />-->
-
-<!--<p></p>-->
-
- <!--{% if setpoint%}-->
- <!-- <p id="setpoint">Setpoint:{{setpoint}}</p>-->
- <!-- {% endif %}-->
- <!-- <div id="content">-->
+    <div id="container" style="height: 600px; min-width: 310px"></div>
+        <Button id="newButton">New</Button>
+        <p></p>
+        
+        <strong>Save Filename:</strong>
+            <input type="text" size="10" id="saveFilename" name="saveFilename">
+            <button type="button" id="saveBtn" name="saveBtn">Save</button><br><br>
+            <strong><div id="echoResult"></div></strong>
+        <p></p>
+        
+        <strong>Load Filename:</strong>
+            <input type="text" size="10" id="loadFilename" name="loadFilename">
+            <button type="button" id="loadBtn" name="loadBtn">Load</button><br><br>
+            <strong><div id="echoResult"></div></strong>
+        <p></p>
     
-
- <!--   <p> </p>-->
- <!--   <form method="post" action='/update_setpoint/'>-->
- <!--     <label for="setpoint">Change Setpoint:</label>-->
- <!--     <input type="text" name="setpoint" /><br />-->
- <!--     <input type="submit" />-->
- <!--   </form>-->
-    
- <!--   <form method="post" action='/start'>-->
- <!--     <button name = 'startButton' value = 'OtherNew'/>-->
- <!--   </form>-->
-  
-    
-  </div>
-  <!-- load scripts at the bottom of your page -->
-  <script src="/static/site.js"></script>
+    </div>
+    <!-- load scripts at the bottom of your page -->
+    <script src="/static/site.js"></script>
 
 </body>
 </html>

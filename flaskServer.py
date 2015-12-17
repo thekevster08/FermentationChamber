@@ -2,9 +2,7 @@ from flask import Flask, render_template, request, jsonify
 
 import os
 import SQLTools
-import collectDataSim
-# import collectDataSim
-# import recordJSON
+#import collectDataSim
 
 app = Flask(__name__)
 app.debug = True
@@ -14,48 +12,11 @@ setpoint = 5
 @app.route('/')
 def main():
     return render_template('index.html')
-
-@app.route('/interface',methods=['POST'])
-def interface():
-    return "this is the return message"
     
 @app.route('/new', methods=['POST'])
 def start():
     SQLTools.drop_temperature_table()
     return "New Pressed"
-    
-@app.route('/startCollection', methods=['POST'])
-def startCollection():
-    # collectDataSim.setCollectData(1)
-    #collectDataSim.collectData()
-    return "starting"
-
-# @app.route('/stopCollection', methods=['POST'])
-# def stopCollection():
-#     collectDataSim.setCollectData(0)
-#     return "stopping"
-    
-@app.route('/setSetpoint', methods=['POST'])
-def setSetpoint():
-    
-    #_setpoint = request.form['setpoint']
-    return "button hit"
-    # setpoint = _setpoint
-    # return setpoint
-
-# @app.route('/getData',methods=['GET'])
-# def getData():
-#     return "this is the return message"
-
-@app.route('/update_setpoint/', methods=['POST'])
-def hello():
-    setpoint=request.form['setpoint']
-    return render_template('index.html', setpoint=setpoint)
-
-
-# def collect_data():
-#     collectDataSim.collect_data()
-#     recordJSON.record_JSON
 
 @app.route('/save/', methods=['GET'])
 def echo():

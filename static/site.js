@@ -84,105 +84,18 @@ function plotChart(){
     });
 }
 
-// $(document).ready(function(){
-//     console.log("asdaf");
-//     // $.ajax({
-//     //     url: 'getData',
-//     //     type: 'GET',
-//     //     success: function(response){
-//     //         alert(response);
-//     //     },
-//     //     error: function(error){
-//     //         alert(error);
-//     //     }
-//     // })
-// });
-
 $('#newButton').on("click", function() {
       console.log("clicked");
-    //   $('#quote').text('b');
-    //   $('#author').text('c');
       $.ajax({
           url: '/new',
           type: 'POST',
           success: function(response){
               console.log(response);
-              plotChart();
           },
           error: function(error){
               console.log(error);
           }
       });
-       
-    //   $.getJSON('../Databases/temperatures.json', function(data) {
-    // 	alert("jQuery works!")
-    //     });
-});
-
-// $('#startCollectionButton').on("click", function() {
-//       console.log("clicked");
-//     //   $('#quote').text('b');
-//     //   $('#author').text('c');
-//       $.ajax({
-//           url: '/startCollection',
-//           type: 'POST',
-//           success: function(response){
-//               console.log(response);
-//           },
-//           error: function(error){
-//               console.log(error);
-//           }
-//       });
-       
-//     //   $.getJSON('../Databases/temperatures.json', function(data) {
-//     // 	alert("jQuery works!")
-//     //     });
-// });
-
-// $('#stopCollectionButton').on("click", function() {
-//       console.log("clicked");
-//     //   $('#quote').text('b');
-//     //   $('#author').text('c');
-//       $.ajax({
-//           url: '/stopCollection',
-//           type: 'POST',
-//           success: function(response){
-//               console.log(response);
-//               plotChart();
-//           },
-//           error: function(error){
-//               console.log(error);
-//           }
-//       });
-       
-//     //   $.getJSON('../Databases/temperatures.json', function(data) {
-//     // 	alert("jQuery works!")
-//     //     });
-// });
-
-
-// $('#saveButton').on("click", function() {
-//       console.log("save button clicked");
-//     //   $('#quote').text('b');
-//     //   $('#author').text('c');
-//       $.ajax({
-//           url: '/start',
-//           type: 'POST',
-//           success: function(response){
-//               console.log(response);
-//           },
-//           error: function(error){
-//               console.log(error);
-//           }
-//       });
-       
-//     //   $.getJSON('../Databases/temperatures.json', function(data) {
-//     // 	alert("jQuery works!")
-//     //     });
-// });
-
-$('#openFileInput').on('click', function() {
-    $('#openFileInput').trigger('click');
 });
 
 $("#saveBtn").click(function() {
@@ -192,7 +105,7 @@ $("#saveBtn").click(function() {
         contentType: "application/json; charset=utf-8",
         data: { saveFilename: $('input[name="saveFilename"]').val() },
         success: function(data) {
-            $('#echoResult').text(data.value);
+            $('#echoResult').text("saved " + data.value);
         }
     });     
 });
@@ -204,47 +117,7 @@ $("#loadBtn").click(function() {
         contentType: "application/json; charset=utf-8",
         data: { loadFilename: $('input[name="loadFilename"]').val() },
         success: function(data) {
-            $('#echoResult').text(data.value);
+            $('#echoResult').text(data.value + " loaded!");
         }
     });     
 });
-
-
-// $(".tagline").click(function() {
-//     alert("jQuery works!");
-// });
-
-// $('#interfaceButton').on("click", function() {
-//       console.log("clicked");
-//     //   $('#quote').text('b');
-//     //   $('#author').text('c');
-//       $.ajax({
-//           url: '/interface',
-//           type: 'POST',
-//           success: function(response){
-//               console.log(response);
-//           },
-//           error: function(error){
-//               console.log(error);
-//           }
-//       });
-       
-//       $.getJSON('../Databases/temperatures.json', function(data) {
-//     	alert("jQuery works!")
-//         });
-// });
-
-// $('#setSetpointButton').on("click", function() {
-//       console.log("submit button clicked");
-//       $.ajax({
-//           url: '/setSetpoint',
-//           type: 'POST',
-//           success: function(response){
-//               console.log(response);
-//           },
-//           error: function(error){
-//               console.log(error);
-//           }
-//       });
-// });
-
