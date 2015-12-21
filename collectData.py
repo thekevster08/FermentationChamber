@@ -27,7 +27,7 @@ while True:
 	chamberTemperature = TemperatureTools.read_temp(chamberProbeFile)
 	ambientTemperature = TemperatureTools.read_temp(ambientProbeFile)
 	
-	SQLTools.LogData(wortTemperature, chamberTemperature, ambientTemperature)
+	SQLTools.log_data(wortTemperature, chamberTemperature, ambientTemperature)
 	
 	with contextlib.closing(sqlite3.connect('temperatures.db')) as database:
 		with contextlib.closing(database.cursor()) as cursor:
