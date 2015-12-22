@@ -34,7 +34,7 @@
     
     </div>
     <!-- load scripts at the bottom of your page -->
-    <script src="./FermentationChamber/FermentationChamber/static/site.js"></script>
-
+    <!--<script src="./static/site.js"></script>-->
+    <script src="{% url_for('static', filename='/site.js' %}"></script>
 </body>
 </html>
