@@ -5,7 +5,7 @@ import SQLTools
 #import collectDataSim
 
 #app.debug = True
-app = Flask(__name__)
+app = Flask(__name__, static_folder='var/www/FermentationChamber/FermentationChamber/static')
 setpoint = 5
 
 @app.route('/static/<path:filename>')
