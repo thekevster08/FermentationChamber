@@ -36,6 +36,6 @@ while True:
 			for timestamp, chamberTemp, wortTemp, motorpv in cursor:
 				temperatures.append([timestamp, chamberTemp, wortTemp, motorpv])
 
-with open('./static/temperatures.json','w') as outfile:
-	json.dump(temperatures, outfile)
-time.sleep(5)
+	with open('./static/temperatures.json','w') as outfile:
+		json.dump(temperatures, outfile)
+	time.sleep(5)
