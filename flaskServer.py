@@ -5,7 +5,7 @@ import SQLTools
 #import collectDataSim
 
 app = Flask(__name__)
-app.debug = True
+#app.debug = True
 
 setpoint = 5
 
@@ -36,5 +36,5 @@ def load():
     
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 8080))
-    host = os.getenv('IP', '192.168.1.15')
+    host = os.getenv('IP', '0.0.0.0')
     app.run(port=port, host=host)
