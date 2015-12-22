@@ -5,7 +5,7 @@ import SQLTools
 #import collectDataSim
 
 #app.debug = True
-
+app = Flask(__name__)
 setpoint = 5
 
 @app.route('/static/<path:filename>')
