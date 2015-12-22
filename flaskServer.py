@@ -36,5 +36,5 @@ def load():
     
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 8080))
-    host = os.getenv('IP', '0.0.0.0')
+    host = os.getenv('IP', '192.168.1.15')
     app.run(port=port, host=host)
