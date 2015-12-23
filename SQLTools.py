@@ -5,7 +5,7 @@ DATABASE = os.path.join(PROJECT_ROOT, 'static', 'temperatures.db')
 
 #creates a new database titled "temps" with three fields, "chamberTemp", "wortTemp", and "ambientTemp"
 def create_temperature_table():
-	conn = sqlite3.connect('./static/temperatures.db')
+	conn = sqlite3.connect(DATABASE)
 	cur = conn.cursor()
 	cur.execute("CREATE TABLE temps (timestamp DATETIME, chamberTemp NUMERIC, wortTemp NUMERIC, ambientTemp NUMERIC)")
 	conn.commit();
