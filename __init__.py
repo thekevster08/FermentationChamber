@@ -5,13 +5,14 @@ import SQLTools
 #import collectDataSim
 
 #app.debug = True
-app = Flask(__name__, static_folder='var/www/FermentationChamber/FermentationChamber/static')
+#app = Flask(__name__, static_folder='var/www/FermentationChamber/FermentationChamber/static')
+app = Flask(__name__)
 setpoint = 5
 
-@app.route('/static/<path:filename>')
-def serve_static(filename):
-    root_dir = os.path.dirname(os.getcwd())
-    return send_from_directory(os.path.join(root_dir, 'statics'), filename)
+# @app.route('/static/<path:filename>')
+# def serve_static(filename):
+#     root_dir = os.path.dirname(os.getcwd())
+#     return send_from_directory(os.path.join(root_dir, 'statics'), filename)
 
 @app.route('/')
 def main():
