@@ -1,4 +1,7 @@
-import sqlite3, shutil, json
+import sqlite3, shutil, json, os
+
+PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
+DATABASE = os.path.join(PROJECT_ROOT, 'static', 'temperatures.db')
 
 #creates a new database titled "temps" with three fields, "chamberTemp", "wortTemp", and "ambientTemp"
 def create_temperature_table():
@@ -20,7 +23,8 @@ def log_data(chamberTemp, wortTemp, ambientTemp):
 	
 #deletes the "temps" table in the "temperatures" database. Clears the JSON database.
 def drop_temperature_table():
-	conn = sqlite3.connect('./static/temperatures.db')
+	# conn = sqlite3.connect('./static/temperatures.db')
+	conn = sqlite3.connect(DATABASE)
 	curs = conn.cursor()
 						   
 	curs.execute('drop table if exists temps')
