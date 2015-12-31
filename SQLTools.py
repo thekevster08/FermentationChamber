@@ -31,7 +31,9 @@ def drop_temperature_table():
 
 #creates a copy of the temperatures database 
 def save_temperature_table(filename):
-	shutil.copy2('/var/www/FermentationChamber/FermentationChamber/static/temperatures.db', '/var/www/FermentationChamber/FermentationChamber/static/' + filename + '.db')
+	src = '/var/www/FermentationChamber/FermentationChamber/static/'
+	dst = '/var/www/FermentationChamber/FermentationChamber/static/'
+	shutil.copy2(os.path.join(src, 'temperatures.db'), dst + filename + '.db')
 	
 def load_temperature_table(filename):
 	shutil.copy2('var/www/FermentationChamber/FermentationChamber/static/' + filename + '.db', 'var/www/FermentationChamber/FermentationChamber/static/temperatures.db')
