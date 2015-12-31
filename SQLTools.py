@@ -1,8 +1,5 @@
 import sqlite3, shutil, json, os
 
-PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
-DATABASE = os.path.join(PROJECT_ROOT, 'static', 'temperatures.db')
-
 #creates a new database titled "temps" with three fields, "chamberTemp", "wortTemp", and "ambientTemp"
 def create_temperature_table():
 	conn = sqlite3.connect('var/www/FermentationChamber/FermentationChamber/static/temperatures.db')
@@ -34,7 +31,7 @@ def drop_temperature_table():
 
 #creates a copy of the temperatures database 
 def save_temperature_table(filename):
-	shutil.copy2('var/www/FermentationChamber/FermentationChamber/static/temperatures.db','var/www/FermentationChamber/FermentationChamber/static/' + filename +'.db')
+	shutil.copy2('/var/www/FermentationChamber/FermentationChamber/static/temperatures.db', '/var/www/FermentationChamber/FermentationChamber/static/' + filename + '.db')
 	
 def load_temperature_table(filename):
-	shutil.copy2('var/www/FermentationChamber/FermentationChamber/static/' + filename +'.db', 'var/www/FermentationChamber/FermentationChamber/static/temperatures.db')
+	shutil.copy2('var/www/FermentationChamber/FermentationChamber/static/' + filename + '.db', 'var/www/FermentationChamber/FermentationChamber/static/temperatures.db')
