@@ -23,7 +23,6 @@ def log_data(chamberTemp, wortTemp, ambientTemp):
 	
 #deletes the "temps" table in the "temperatures" database. Clears the JSON database.
 def drop_temperature_table():
-	# conn = sqlite3.connect('./static/temperatures.db')
 	conn = sqlite3.connect('var/www/FermentationChamber/FermentationChamber/static/temperatures.db')
 	curs = conn.cursor()
 						   

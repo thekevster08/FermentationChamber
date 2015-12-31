@@ -5,7 +5,7 @@ $(document).ready(function(){
 });
 
 function plotChart(){
-    $.getJSON('/static/temperatures.json', function (data) {
+    $.getJSON('./static/temperatures.json', function (data) {
         // Create the chart
         var val1 = [];
     	var val2 = [];
