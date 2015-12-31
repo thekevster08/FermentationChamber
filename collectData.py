@@ -29,13 +29,13 @@ while True:
 	
 	SQLTools.log_data(wortTemperature, chamberTemperature, ambientTemperature)
 	
-	with contextlib.closing(sqlite3.connect('./static/temperatures.db')) as database:
+	with contextlib.closing(sqlite3.connect('var/www/FermentationChamber/FermentationChamber/static/temperatures.db')) as database:
 		with contextlib.closing(database.cursor()) as cursor:
 			cursor.execute('select strftime("%s", timestamp)*1000, chamberTemp, wortTemp, ambientTemp from temps')
 			temperatures = []
 			for timestamp, chamberTemp, wortTemp, motorpv in cursor:
 				temperatures.append([timestamp, chamberTemp, wortTemp, motorpv])
 
-	with open('./static/temperatures.json','w') as outfile:
+	with open('var/www/FermentationChamber/FermentationChamber/static/temperatures.json','w') as outfile:
 		json.dump(temperatures, outfile)
 	time.sleep(5)
