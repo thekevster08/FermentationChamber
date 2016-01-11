@@ -98,6 +98,20 @@ $('#newButton').on("click", function() {
       });
 });
 
+$('#startCollectionButton').on("click", function() {
+      console.log("clicked");
+      $.ajax({
+          url: '/startCollection',
+          type: 'POST',
+          success: function(response){
+              console.log(response);
+          },
+          error: function(error){
+              console.log(error);
+          }
+      });
+});
+
 $("#saveBtn").click(function() {
      $.ajax({
         type: "GET",
