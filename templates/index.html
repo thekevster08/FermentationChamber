@@ -1,0 +1,43 @@
+
+
+<!DOCTYPE HTML><html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Fermentation Chamber</title>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>  
+</head>
+
+<body>
+    
+    <h1>Fermentation Chamber Control Center</h1>
+        
+    
+    <div id="container" style="height: 600px; min-width: 310px"></div>
+        <Button id="newButton">New</Button>
+    
+        <p></p>
+        
+        <strong>Save Filename:</strong>
+            <input type="text" size="10" id="saveFilename" name="saveFilename">
+            <button type="button" id="saveBtn" name="saveBtn">Save</button><br><br>
+            <strong><div id="echoResult"></div></strong>
+        <p></p>
+        
+        <strong>Load Filename:</strong>
+            <input type="text" size="10" id="loadFilename" name="loadFilename">
+            <button type="button" id="loadBtn" name="loadBtn">Load</button><br><br>
+            <strong><div id="echoResult"></div></strong>
+        <p></p>
+    
+    </div>
+    
+    <!-- load scripts at the bottom of your page -->
+    <script src="./static/site.js"></script>
+    <!--<script src="{{ url_for('static', filename='site.js') }}"></script>-->
+
+</body>
+</html>

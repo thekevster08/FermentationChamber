@@ -1,0 +1,18 @@
+Version 1.00
+
+Basic Functionality Created
+
+Feature Request
+-add the following buttons: "start collection", "stop collection", "New", "Save" "Load"
+-Have a green light indicating collection
+-in plotChart instead of running getJSON, make a call to a function to copy everything from 
+    the db to the json file, then call json
+
+Stretch goals:
+-update constantly
+    -its really not feasable to have it updating constantly, so lets not worry about that
+    
+Known Bugs:
+-you need to have a seperate script always running seperate of the data collection to dump 
+    to JSON. if you load something while its not running you are not going to get any json 
+    data.
