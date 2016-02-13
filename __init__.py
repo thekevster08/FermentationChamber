@@ -2,27 +2,42 @@ from flask import Flask, render_template, request, jsonify, send_from_directory
 
 import os
 import SQLTools
+import collectData
 
 app = Flask(__name__)
-setpoint = 5
 
 @app.route('/')
 def main():
     return render_template('index.html')
     
+@app.route('/heatOn', methods=['POST'])
+def new():
+    TemperatureControlTools.heatOn();
+    return "Heat On"
+
+@app.route('/heatOff', methods=['POST'])
+def new():
+    TemperatureControlTools.heatOff();
+    return "Heat Off"
+    
 @app.route('/new', methods=['POST'])
-def start():
+def new():
     SQLTools.drop_temperature_table()
     return "New Pressed"
+    
+@app.route('/startCollection', methods=['POST'])
+def start():
+    SQLTools.drop_temperature_table()
+    return "Start Pressed"
 
-@app.route('/save/', methods=['GET'])
+@app.route('/save', methods=['GET'])
 def echo():
     filename = request.args.get('saveFilename')
     SQLTools.save_temperature_table(filename)
     ret_data = {"value": request.args.get('saveFilename')}
     return jsonify(ret_data)
     
-@app.route('/load/', methods=['GET'])
+@app.route('/load', methods=['GET'])
 def load():
     filename = request.args.get('loadFilename')
     SQLTools.load_temperature_table(filename)

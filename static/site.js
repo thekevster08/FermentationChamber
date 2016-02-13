@@ -115,7 +115,7 @@ $('#startCollectionButton').on("click", function() {
 $("#saveBtn").click(function() {
      $.ajax({
         type: "GET",
-        url: "/save/",
+        url: "/save",
         contentType: "application/json; charset=utf-8",
         data: { saveFilename: $('input[name="saveFilename"]').val() },
         success: function(data) {
@@ -127,11 +127,37 @@ $("#saveBtn").click(function() {
 $("#loadBtn").click(function() {
      $.ajax({
         type: "GET",
-        url: "/load/",
+        url: "/load",
         contentType: "application/json; charset=utf-8",
         data: { loadFilename: $('input[name="loadFilename"]').val() },
         success: function(data) {
             $('#echoResult').text(data.value + " loaded!");
         }
     });     
+});
+
+$("#heatChkbx").click(function() {
+    if($("#heatOnChkbx").checked){
+        $.ajax({
+          url: '/heatOn',
+          type: 'POST',
+          success: function(response){
+              console.log(response);
+          },
+          error: function(error){
+              console.log(error);
+          }
+        });
+    } else{
+         $.ajax({
+          url: '/heatOff',
+          type: 'POST',
+          success: function(response){
+              console.log(response);
+          },
+          error: function(error){
+              console.log(error);
+          }
+        });
+    }
 });
