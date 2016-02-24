@@ -11,6 +11,19 @@ Instructions for use:
 -A collect data script must be running to populate the database with data. Start collectData.py with the following command:
     >> python collectData.py
 
+Installation Instructions:
+-Install - 
+    *navigate to /var/www/FermentationChamber/FermentationChamber
+    *git fetch --all
+    *git reset --hard origin/master
+-Set Permissions -
+    *navigate to ./static
+    *sudo chmod 777 temperatures.json
+    *sudo chmod 777 temperatures.db
+    *sudo chown www-data temperatures.db
+    *sudo chown www-data temperatures.json
+    *sudo chgrp wwwdatapi temperatures.db
+    *sudo chgrp wwwdatapi temperatures.json
 
 Version Notes:
 
