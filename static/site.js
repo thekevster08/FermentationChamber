@@ -87,7 +87,21 @@ function plotChart(){
 $('#startCollectionButton').on("click", function() {
       console.log("clicked collect data");
       $.ajax({
-          url: '/collectData',
+          url: '/startCollection',
+          type: 'POST',
+          success: function(response){
+              console.log(response);
+          },
+          error: function(error){
+              console.log(error);
+          }
+      });
+});
+
+$('#stopCollectionButton').on("click", function() {
+      console.log("clicked collect data");
+      $.ajax({
+          url: '/stopCollection',
           type: 'POST',
           success: function(response){
               console.log(response);

@@ -11,9 +11,14 @@ setpoint = 5
 def main():
     return render_template('index.html')
     
-@app.route('/collectData', methods=['POST'])
+@app.route('/startCollection', methods=['POST'])
 def startCollectData():
-    collectData.collect_data()
+    collectData.collect_data(1)
+    return "collect data pressed"
+    
+@app.route('/stopCollection', methods=['POST'])
+def stopCollectData():
+    collectData.collect_data(0)
     return "collect data pressed"
     
 @app.route('/new', methods=['POST'])

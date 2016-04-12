@@ -22,8 +22,8 @@ wortProbeFile = base_dir + '28-00000626d82b/w1_slave'
 chamberProbeFile = base_dir + '28-00000626f736/w1_slave'
 ambientProbeFile = base_dir + '28-0000062883c0/w1_slave'
 
-def collect_data():
-	while True:
+def collect_data(collectDataFlag):
+	while collectDataFlag == 1:
 		wortTemperature = TemperatureTools.read_temp(wortProbeFile)
 		chamberTemperature = TemperatureTools.read_temp(chamberProbeFile)
 		ambientTemperature = TemperatureTools.read_temp(ambientProbeFile)
