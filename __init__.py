@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, jsonify, send_from_directory 
+from flask import Flask, render_template, request, jsonify, send_from_directory
 
+import TemperatureControlTools
 import os
 import SQLTools
 import collectData
@@ -11,12 +12,12 @@ def main():
     return render_template('index.html')
     
 @app.route('/heatOn', methods=['POST'])
-def new():
+def heatOn():
     TemperatureControlTools.heatOn();
     return "Heat On"
 
 @app.route('/heatOff', methods=['POST'])
-def new():
+def heatOff():
     TemperatureControlTools.heatOff();
     return "Heat Off"
     
