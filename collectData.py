@@ -39,4 +39,4 @@ def collect_data():
 	
 		with open('/var/www/FermentationChamber/FermentationChamber/static/temperatures.json','w') as outfile:
 			json.dump(temperatures, outfile)
-		time.sleep(5)
+		time.sleep(300)

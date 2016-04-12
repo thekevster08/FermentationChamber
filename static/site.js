@@ -114,8 +114,8 @@ $('#newButton').on("click", function() {
 
 $("#saveBtn").click(function() {
      $.ajax({
+        url: "/save",
         type: "GET",
-        url: "/save/",
         contentType: "application/json; charset=utf-8",
         data: { saveFilename: $('input[name="saveFilename"]').val() },
         success: function(data) {
@@ -126,8 +126,8 @@ $("#saveBtn").click(function() {
 
 $("#loadBtn").click(function() {
      $.ajax({
+        url: "/load",
         type: "GET",
-        url: "/load/",
         contentType: "application/json; charset=utf-8",
         data: { loadFilename: $('input[name="loadFilename"]').val() },
         success: function(data) {

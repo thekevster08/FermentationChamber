@@ -33,7 +33,7 @@ Version Notes:
 
 Feature Request
 Data collection control:
-    -Add the following buttons: "start collection", "stop collection"
+    -have an int for data collection interval
     -Have a green light indicating data is being collected.
     -In plotChart instead of running getJSON, make a call to a function to copy everything from 
         the db to the json file, then call json. This way you don't have to constantly rewrite the 
