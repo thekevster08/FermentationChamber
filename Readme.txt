@@ -3,7 +3,7 @@ Fermentation Chamber
 startDataCollection goals:
 click button to start data collection thread
 
-version -1.00
+version -1.1
 A simple fermentation chamber control center.
 
 Features:
@@ -48,3 +48,6 @@ Known Bugs:
     to JSON. if you load something while its not running you are not going to get any json 
     data.
 
+version history:
+1.0 - initial working. initial features
+1.1 - added start collection button.

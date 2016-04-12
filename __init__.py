@@ -19,7 +19,6 @@ setpoint = 5
 def main():
     return render_template('index.html')
     
-    
 @app.route('/collectData', methods=['POST'])
 def collectDataStart():
     collectData.collect_data()
