@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify, send_from_directory
 
 import os
 import SQLTools
+import collectData
 #import collectDataSim
 
 #app.debug = True
@@ -17,6 +18,12 @@ setpoint = 5
 @app.route('/')
 def main():
     return render_template('index.html')
+    
+    
+@app.route('/collectData', methods=['POST'])
+def collectDataStart():
+    collectData.collect_data()
+    return "collect data pressed"
     
 @app.route('/new', methods=['POST'])
 def start():

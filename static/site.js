@@ -84,6 +84,20 @@ function plotChart(){
     });
 }
 
+$('#startCollectionButton').on("click", function() {
+      console.log("clicked collect data");
+      $.ajax({
+          url: '/collectData',
+          type: 'POST',
+          success: function(response){
+              console.log(response);
+          },
+          error: function(error){
+              console.log(error);
+          }
+      });
+});
+
 $('#newButton').on("click", function() {
       console.log("clicked");
       $.ajax({

@@ -1,4 +1,8 @@
 Fermentation Chamber
+
+startDataCollection goals:
+click button to start data collection thread
+
 version -1.00
 A simple fermentation chamber control center.
 
