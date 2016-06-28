@@ -44,3 +44,21 @@ Known Bugs:
     to JSON. if you load something while its not running you are not going to get any json 
     data.
 
+
+
+to return from dev to release on PID
+rename main.py to __init__.py
+rename the if __main__ to if __init_)_
+update file paths in SQLTools.py (had to break all of them)
+
+
+
+this version user stories:
+
+
+
+future version user stories:
+-be able to control to either fridge temp or beer temp
+-have manual output for heat and cold
+-clean up checkboxes
+-save checkbox visibility

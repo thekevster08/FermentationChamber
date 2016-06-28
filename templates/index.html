@@ -1,43 +1,213 @@
 
 
-<!DOCTYPE HTML><html>
+<!--<!DOCTYPE HTML><html>-->
+<!--<head>-->
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">-->
+<!--    <title>Fermentation Chamber</title>-->
+    
+<!--    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
+    
+<!--    <script src="https://code.highcharts.com/stock/highstock.js"></script>-->
+<!--    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>  -->
+<!--</head>-->
+
+<!--<body>-->
+    
+<!--    <h1>Fermentation Chamber Control Center</h1>-->
+        
+    
+<!--    <div id="container" style="height: 600px; min-width: 310px"></div>-->
+<!--        <Button id="newButton">New</Button>-->
+    
+<!--        <p></p>-->
+        
+<!--        <strong>Save Filename:</strong>-->
+<!--            <input type="text" size="10" id="saveFilename" name="saveFilename">-->
+<!--            <button type="button" id="saveBtn" name="saveBtn">Save</button><br><br>-->
+<!--            <strong><div id="echoResult"></div></strong>-->
+<!--        <p></p>-->
+        
+<!--        <strong>Load Filename:</strong>-->
+<!--            <input type="text" size="10" id="loadFilename" name="loadFilename">-->
+<!--            <button type="button" id="loadBtn" name="loadBtn">Load</button><br><br>-->
+<!--            <strong><div id="echoResult"></div></strong>-->
+<!--        <p></p>-->
+    
+<!--    </div>-->
+    
+    <!-- load scripts at the bottom of your page -->
+<!--    <script src="./static/site.js"></script>-->
+    <!--<script src="{{ url_for('static', filename='site.js') }}"></script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+<html lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Fermentation Chamber</title>
-    
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    
-    <script src="https://code.highcharts.com/stock/highstock.js"></script>
-    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>  
+  <meta charset="utf-8" />
+  <title>Fermentation Chamber</title>
+
+
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools.js"></script>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+  <script src="https://code.highcharts.com/stock/highstock.js"></script>
+  <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+  <script type="text/javascript" src="/js/themes/gray.js"></script>
 </head>
 
 <body>
-    
-    <h1>Fermentation Chamber Control Center</h1>
-        
-    
-    <div id="container" style="height: 600px; min-width: 310px"></div>
-        <Button id="newButton">New</Button>
-    
-        <p></p>
-        
-        <strong>Save Filename:</strong>
-            <input type="text" size="10" id="saveFilename" name="saveFilename">
-            <button type="button" id="saveBtn" name="saveBtn">Save</button><br><br>
-            <strong><div id="echoResult"></div></strong>
-        <p></p>
-        
-        <strong>Load Filename:</strong>
-            <input type="text" size="10" id="loadFilename" name="loadFilename">
-            <button type="button" id="loadBtn" name="loadBtn">Load</button><br><br>
-            <strong><div id="echoResult"></div></strong>
-        <p></p>
-    
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">Brewbot</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#">Fermentation Chamber</a></li>
+          <li><a href="#">Brewery</a></li>
+          <li><a href="#">On Tap</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
     </div>
-    
-    <!-- load scripts at the bottom of your page -->
-    <script src="./static/site.js"></script>
-    <!--<script src="{{ url_for('static', filename='site.js') }}"></script>-->
+  </nav>
 
+  
+  <br>
+  <br>
+
+  <div class="container">
+    <h1>Configuration</h1>
+    <div id="container" style="height: 600px; min-width: 310px"></div>
+    <label><input type='checkbox' onclick='val0Click(this);'>Wort Temp</label>
+    <label><input type='checkbox' onclick='val1Click(this);'>Chamber Temp</label>
+    <label><input type='checkbox' onclick='val2Click(this);'>Ambient Temp</label>
+    <label><input type='checkbox' onclick='val3Click(this);'>Primary Setpoint</label>
+    <label><input type='checkbox' onclick='val4Click(this);'>Secodnary Setpoint</label>
+    <label><input type='checkbox' onclick='val5Click(this);'>Primary Controller Output</label>
+    <label><input type='checkbox' onclick='val6Click(this);'>Secondary Controller Output</label>
+    <label><input type='checkbox' onclick='val7Click(this);'>Cold On</label>
+    <label><input type='checkbox' onclick='val8Click(this);'>Hot On</label>
+    <!--<label><input type='checkbox' onclick='val9Click(this);'>Val8</label>-->
+    <br>
+    <!--<label><input type="checkbox" name="val1Checkbox"/> Remove Val 1</label>-->
+    <!--<button id="val1Button" class="autocompare">Remove point</button>-->
+    <!--<button id="val2Button" class="autocompare">Remove point</button>-->
+    <!--<button id="val3Button" class="autocompare">Remove point</button>-->
+    <!--<button id="val4Button" class="autocompare">Remove point</button>-->
+    <!--<button id="val5Button" class="autocompare">Remove point</button>-->
+    <!--<button id="val6Button" class="autocompare">Remove point</button>-->
+    <!--<button id="val7Button" class="autocompare">Remove point</button>-->
+    <!--<button id="val8Button" class="autocompare">Remove point</button>-->
+    <!--<Button id="newButton">New</Button>-->
+  
+
+  <a href="#" class="toggler off">&nbsp;</a>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#recording">Recording</a></li>
+      <li><a data-toggle="tab" href="#control">Control</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="recording" class="tab-pane fade in active">
+        <h3>Recording:</h3>
+        <Button id="clearButton">Clear Database</Button>
+
+        <p></p>
+        <strong>Sample Time:</strong>
+        <input type="text" size="3" id="sampleTime" name="sampleTime">
+        <Button type= "button" id="updateSampleTimeBtn" name="updateSampleTimeBtn">Update</Button>
+        <strong><div id="echoResult"></div></strong>
+        <br>
+        <p><Strong>Record Data:</Strong></p>
+        <Button id="startCollectionButton">Start Collection</Button>
+        <!--<button id="button" class="autocompare">Remove point</button>-->
+        <Button id="stopCollectionButton">Stop Collection</Button>
+        <br>
+        <!--<input type="text" size="3" id="compression" name="compression">-->
+        <!--<strong>Compression</strong>-->
+        <br><br>
+        <strong>Save Filename:</strong>
+        <input type="text" size="10" id="saveFilename" name="saveFilename">
+        <button type="button" id="saveBtn" name="saveBtn">Save</button>
+        <br>
+        <strong><div id="echoResult"></div></strong>
+        <p></p>
+
+        <strong>Load Filename:</strong>
+        <input type="text" size="10" id="loadFilename" name="loadFilename">
+        <button type="button" id="loadBtn" name="loadBtn">Load</button>
+
+        <strong><div id="echoResult"></div></strong>
+        <br>
+        <p></p>
+
+
+        <p></p>
+      </div>
+
+
+      <div id="control" class="tab-pane fade">
+        <h3>Control:</h3>
+        <Button id="startControlButton">Start Control</Button>
+        <Button id="stopControlButton">Stop Control</Button>
+        <br>
+        <Button id="coolOnButton">Cool On</Button>
+        <Button id="coolOffButton">Cool Off</Button>
+        <br>
+        <Button id="heatOnButton">Heat On</Button>
+        <Button id="heatOffButton">Heat Off</Button>
+        <br>
+        <br>
+        
+        <strong>Setpoint:</strong>
+        <input type="text" size="10" id="setpoint" name="setpoint">
+        <Button id="updateSetpointButton">Update</Button><br><br>
+        
+        <strong>Active Deadband:</strong>
+        <input type="text" size="10" id="activeDeadband" name="activeDeadband">
+        <Button id="updateActiveDeadbandButton">Update</Button><br><br>
+        
+        <strong>Inactive Deadband:</strong>
+        <input type="text" size="10" id="inactiveDeadband" name="inactiveDeadband">
+        <Button id="updateInactiveDeadbandButton">Update</Button><br><br>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- load scripts at the bottom of your page -->
+  <script src="./static/site.js"></script>
+  <!--<script src="{{ url_for('static', filename='site.js') }}"></script>-->
 </body>
+
 </html>
